@@ -1,5 +1,7 @@
 ﻿@page "{id:int}"
 @model RazorPagesMovie.Pages.Movies.DetailsModel
+public async Task<IActionResult>
+    OnGetAsync(int? id)
 
 @{
     ViewData["Title"] = "Details";
