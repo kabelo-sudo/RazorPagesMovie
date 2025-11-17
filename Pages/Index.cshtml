@@ -1,15 +1,48 @@
-﻿@page
-@model IndexModel
+@page
+@model Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Learn about 
+        <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+    </p>
 </div>
-<div> class="main-content">
-    <hl>Welcome to RazorPageMovies </h1>
-        <p>Discover and explore your favourite movies</p>
-</div>  
+
+<div class="main-content">
+    <h1>Welcome to RazorPageMovies</h1>
+    <p>Discover and explore your favourite movies</p>
+</div>
+
+<h1>Latest Movies & TV Shows</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Quality</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Duration</th>
+            <th>Type</th>
+            <th>Season</th>
+            <th>Episode</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MediaItems)
+        {
+            <tr>
+                <td>@item.Quality</td>
+                <td>@item.Title</td>
+                <td>@item.Year</td>
+                <td>@item.Duration</td>
+                <td>@item.Type</td>
+                <td>@item.Season</td>
+                <td>@item.Episode</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
