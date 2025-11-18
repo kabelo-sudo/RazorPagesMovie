@@ -5,56 +5,56 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="fw-bold mb-4">Movies</h1>
+<h1>Index</h1>
 
-<!-- Netflix-Style Horizontal Scrolling Row -->
-<h2 class="fw-bold mb-3">Popular Movies</h2>
-
-<div class="movie-row">
-    @foreach (var item in Model.Movie)
-    {
-        <div class="movie-card">
-            <!-- If you don't have images yet, use a placeholder -->
-            <img src="~/images/@item.ImageFile" alt="@item.Title" onerror="this.src='/images/placeholder.jpg';" />
-
-            <div class="movie-title">@item.Title</div>
-        </div>
-    }
-</div>
-
-<hr class="my-5" />
-
-<!-- Original Page Content (Table) -->
 <p>
-    <a class="btn btn-danger" asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New</a>
 </p>
-
-<table class="table text-white">
+<table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Movie[0].Title)</th>
-            <th>@Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)</th>
-            <th>@Html.DisplayNameFor(model => model.Movie[0].Price)</th>
-            <th>@Html.DisplayNameFor(model => model.Movie[0].Genre)</th>
-            <th>@Html.DisplayNameFor(model => model.Movie[0].Rating)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Rating)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Movie)
-        {
-            <tr>
-                <td>@Html.DisplayFor(m => item.Title)</td>
-                <td>@Html.DisplayFor(m => item.ReleaseDate)</td>
-                <td>@Html.DisplayFor(m => item.Price)</td>
-                <td>@Html.DisplayFor(m => item.Genre)</td>
-                <td>@Html.DisplayFor(m => item.Rating)</td>
-                <td>
-                    <a class="text-danger" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a class="text-danger" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a class="text-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model.Movie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
